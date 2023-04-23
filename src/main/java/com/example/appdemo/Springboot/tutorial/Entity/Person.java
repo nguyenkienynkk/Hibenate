@@ -31,6 +31,10 @@ import java.util.Date;
         @Column
         private int age;
         @Column
+        private String yourMajor;
+        @Column
+        private String className;
+        @Column
         private String sex;
         @Column(nullable = false, length = 255, unique = true)
         private String username;
@@ -138,6 +142,22 @@ import java.util.Date;
 
         public void setSex(String sex) {
             this.sex = sex;
+        }
+
+        public String getYourMajor() {
+            return yourMajor;
+        }
+
+        public void setYourMajor(String yourMajor) {
+            this.yourMajor = yourMajor;
+        }
+
+        public String getClassName() {
+            return className;
+        }
+
+        public void setClassName(String className) {
+            this.className = className;
         }
 
         @Override

@@ -1,10 +1,9 @@
-package Service;
+package com.example.appdemo.Springboot.tutorial.Service;
 import com.example.appdemo.Springboot.tutorial.Entity.Person;
 import com.example.appdemo.Springboot.tutorial.Repository.Repo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
@@ -19,7 +18,7 @@ public class PersonService {
     Repo repo;
     @Transactional(readOnly = false)
 
-    public  Person updatePerson(Person person) {
+    public Person updatePerson(Person person) {
         Person personUpdate;
         try {
             personUpdate = repo.findAllById(person.getId());
@@ -53,6 +52,14 @@ public class PersonService {
             throw e;
         }
     }
+    @Transactional(readOnly = true)
+    public Person getPersonBySexAndAgeAndPassword(String sex) throws Exception {
+        try {
+            return (Person) repo.findAllBySexAndAgeAndPassword("Nam",19,"Kien2003@@");
+        } catch (Exception e) {
+            throw e;
+        }
+    }
 
     @Transactional(readOnly = false)
     public Person createPerson(Person person) throws Exception {
@@ -62,11 +69,6 @@ public class PersonService {
             throw e;
         }
     }
-
-
-
-
-
     @Transactional(readOnly = false)
     public String deletePersonById(Long id) throws Exception {
         String result = "";

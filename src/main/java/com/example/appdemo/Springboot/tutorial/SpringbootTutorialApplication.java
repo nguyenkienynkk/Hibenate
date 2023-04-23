@@ -1,5 +1,6 @@
 package com.example.appdemo.Springboot.tutorial;
 
+import com.example.appdemo.Springboot.tutorial.Entity.Person;
 import com.example.appdemo.Springboot.tutorial.Repository.Repo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.SpringApplication;
@@ -13,5 +14,6 @@ public class SpringbootTutorialApplication {
 	private final Repo repo;
 	public static void main(String[] args) {
 		SpringApplication.run(SpringbootTutorialApplication.class, args);
+
 	}
 }
